@@ -11,9 +11,6 @@ import { loginSchema, type LoginInput } from "@/app/lib/validations/auth.schema"
 import { authClient } from "@/app/lib/auth-client";
 import { toast } from "react-toastify";
 
-// দুটো আলাদা ডেমো একাউন্ট — একটা সাধারণ user role, একটা admin role
-// ⚠️ এই দুটো একাউন্ট backend এ আগে থেকেই তৈরি করা থাকতে হবে (register endpoint দিয়ে বানিয়ে,
-// তারপর admin একাউন্টের role ম্যানুয়ালি DB তে "admin" করে দিতে হবে)
 const DEMO_USER = {
   email: "demo.user@skillpilot.ai",
   password: "DemoUser@1234",
