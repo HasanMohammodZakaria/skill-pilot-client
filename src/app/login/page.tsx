@@ -12,8 +12,8 @@ import { authClient } from "@/app/lib/auth-client";
 import { toast } from "react-toastify";
 
 const DEMO_USER = {
-  email: "demo.user@skillpilot.ai",
-  password: "DemoUser@1234",
+  email: "rahim@skillpilot.ai",
+  password: "1234567R",
 };
 
 const DEMO_ADMIN = {

@@ -4,8 +4,8 @@ import { ToastContainer } from "react-toastify";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 
-
-import ConditionalChrome from "./components/conditionalChrome";
+import ConditionalChrome from "./components/ConditionalChrome";
+import QueryProvider from "./components/providers/QueryProvider";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -30,34 +30,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className="dark"
-       suppressHydrationWarning
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body className={`${spaceGrotesk.variable} ${inter.variable} font-body antialiased`}>
+        <QueryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+            disableTransitionOnChange
+          >
+            <ConditionalChrome>{children}</ConditionalChrome>
 
-    >
-      <body className= {`${spaceGrotesk.variable} ${inter.variable} font-body antialiased `}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-         <ConditionalChrome>{children}</ConditionalChrome>  
-        
-        <ToastContainer
-            position="top-right"
-            autoClose={3000}
-            hideProgressBar={false}
-            newestOnTop
-            closeOnClick
-            pauseOnHover
-            theme="dark"
-          />
-           
-        </ThemeProvider>
-        
-        </body>
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop
+              closeOnClick
+              pauseOnHover
+              theme="dark"
+            />
+          </ThemeProvider>
+        </QueryProvider>
+      </body>
     </html>
   );
 }
