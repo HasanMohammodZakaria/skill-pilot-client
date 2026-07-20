@@ -7,6 +7,6 @@ export function useReviews(blueprintId: string) {
   return useQuery({
     queryKey: queryKeys.reviews.forBlueprint(blueprintId),
     queryFn: () =>
-      apiClient<ReviewsResponse>(`/api/reviews/blueprints/${blueprintId}/reviews`),
+      apiClient<ReviewsResponse>(`/api/blueprints/${blueprintId}/reviews`)
   });
 }

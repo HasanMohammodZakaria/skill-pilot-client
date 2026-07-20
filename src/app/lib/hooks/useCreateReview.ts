@@ -7,10 +7,10 @@ export function useCreateReview(blueprintId: string) {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (data: { rating: number; comment: string }) =>
-      apiClient<ApiResponse<Review>>(`/api/reviews/blueprints/${blueprintId}/reviews`, {
-        method: "POST",
-        body: JSON.stringify(data),
-      }),
+      apiClient<ApiResponse<Review>>(`/api/blueprints/${blueprintId}/reviews`, {
+  method: "POST",
+  body: JSON.stringify(data),
+}),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: queryKeys.reviews.forBlueprint(blueprintId) });
     },

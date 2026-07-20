@@ -7,9 +7,9 @@ export function useDeleteReview(blueprintId: string) {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (reviewId: string) =>
-      apiClient<ApiResponse<{ message: string }>>(`/api/reviews/reviews/${reviewId}`, {
-        method: "DELETE",
-      }),
+    apiClient<ApiResponse<{ message: string }>>(`/api/reviews/${reviewId}`, {
+  method: "DELETE",
+}),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: queryKeys.reviews.forBlueprint(blueprintId) });
     },
