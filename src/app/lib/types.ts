@@ -79,3 +79,10 @@ export interface BlueprintListResponse {
     totalPages: number;
   };
 }
+export interface BlueprintFiltersResponse {
+  success: boolean;
+  data: {
+    categories: { value: string; count: number }[];
+    difficulties: { value: string; count: number }[];
+  };
+}

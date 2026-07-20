@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useBlueprintFilterOptions } from "@/app/lib/hooks/useBlueprintFilters";
 
 export interface FilterState {
   search: string;
@@ -17,8 +18,8 @@ export default function BlueprintFilters({
   onChange: (next: FilterState) => void;
 }) {
   const [searchInput, setSearchInput] = useState(value.search);
+  const { data: filterOptions } = useBlueprintFilterOptions();
 
-  // debounce search input
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (searchInput !== value.search) {
@@ -35,37 +36,39 @@ export default function BlueprintFilters({
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
         placeholder="Search blueprints..."
-        className="flex-1 border rounded px-3 py-2 text-sm sm:text-base"
+        className="flex-1 border rounded px-3 py-2 text-sm sm:text-base w-full sm:w-auto"
       />
 
       <select
         value={value.category}
         onChange={(e) => onChange({ ...value, category: e.target.value })}
-        className="border rounded px-3 py-2 text-sm sm:text-base"
+        className="border rounded px-3 py-2 text-sm sm:text-base w-full sm:w-auto"
       >
         <option value="">All Categories</option>
-        <option value="Web Development">Web Development</option>
-        <option value="Data Science">Data Science</option>
-        <option value="Mobile Development">Mobile Development</option>
-        <option value="DevOps">DevOps</option>
-        <option value="Design">Design</option>
+        {filterOptions?.data.categories.map((c) => (
+          <option key={c.value} value={c.value}>
+            {c.value} ({c.count})
+          </option>
+        ))}
       </select>
 
       <select
         value={value.difficulty}
         onChange={(e) => onChange({ ...value, difficulty: e.target.value })}
-        className="border rounded px-3 py-2 text-sm sm:text-base"
+        className="border rounded px-3 py-2 text-sm sm:text-base w-full sm:w-auto"
       >
         <option value="">All Levels</option>
-        <option value="Beginner">Beginner</option>
-        <option value="Intermediate">Intermediate</option>
-        <option value="Advanced">Advanced</option>
+        {filterOptions?.data.difficulties.map((d) => (
+          <option key={d.value} value={d.value}>
+            {d.value} ({d.count})
+          </option>
+        ))}
       </select>
 
       <select
         value={value.sort}
         onChange={(e) => onChange({ ...value, sort: e.target.value as FilterState["sort"] })}
-        className="border rounded px-3 py-2 text-sm sm:text-base"
+        className="border rounded px-3 py-2 text-sm sm:text-base w-full sm:w-auto"
       >
         <option value="newest">Newest First</option>
         <option value="oldest">Oldest First</option>

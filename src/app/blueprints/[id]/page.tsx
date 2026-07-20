@@ -5,7 +5,6 @@ import type { ApiResponse, Blueprint } from "@/app/lib/types";
 import Link from "next/link";
 import ReviewSection from "@/app/components/dashboard/user/ReviewSection";
 
-
 export default async function BlueprintDetailsPage({
   params,
 }: {
@@ -17,7 +16,17 @@ export default async function BlueprintDetailsPage({
   const session = await getServerSession();
 
   return (
-    <div className="max-w-2xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-4">
+    <div className="max-w-2xl mx-auto px-3 sm:px-6 py-6 sm:py-12 space-y-4">
+      <Link
+        href="/blueprints"
+        className="inline-flex items-center gap-1 text-xs sm:text-sm text-gray-400 hover:text-gray-200"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M19 12H5M5 12l7-7M5 12l7 7" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        Back to Blueprints
+      </Link>
+
       {blueprint.coverImageUrl && (
         <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-800">
           <Image
@@ -30,7 +39,7 @@ export default async function BlueprintDetailsPage({
         </div>
       )}
 
-      <h1 className="text-xl sm:text-2xl font-bold">{blueprint.title}</h1>
+      <h1 className="text-lg sm:text-2xl font-bold words">{blueprint.title}</h1>
 
       <p className="text-sm sm:text-base text-gray-400">{blueprint.shortDescription}</p>
 
@@ -42,14 +51,14 @@ export default async function BlueprintDetailsPage({
 
       <div>
         <h2 className="font-semibold text-sm sm:text-base mb-1">Description</h2>
-        <p className="text-sm sm:text-base text-gray-600 whitespace-pre-wrap">
+        <p className="text-sm sm:text-base text-gray-600 whitespace-pre-wrap words">
           {blueprint.fullDescription}
         </p>
       </div>
 
       <div>
         <h2 className="font-semibold text-sm sm:text-base mb-1">Learning Goal</h2>
-        <p className="text-sm sm:text-base text-gray-600">{blueprint.learningGoal}</p>
+        <p className="text-sm sm:text-base text-gray-600 words">{blueprint.learningGoal}</p>
       </div>
 
       {blueprint.skillTags && blueprint.skillTags.length > 0 && (
@@ -70,7 +79,7 @@ export default async function BlueprintDetailsPage({
           href={blueprint.resourceLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block text-sm sm:text-base text-blue-600 underline"
+          className="inline-block text-sm sm:text-base text-blue-600 underline break-all"
         >
           View Resource
         </Link>
