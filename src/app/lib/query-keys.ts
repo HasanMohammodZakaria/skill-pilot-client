@@ -11,5 +11,6 @@ export const queryKeys = {
   admin: {
     stats: ["admin", "stats"] as const,
     users: ["admin", "users"] as const,
+    blueprints: (page: number, search: string) => ["admin", "blueprints", page, search] as const,
   },
 };

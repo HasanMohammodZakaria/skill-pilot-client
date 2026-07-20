@@ -134,6 +134,20 @@ export interface Review {
   blueprintTitle?: string;
   createdAt: string;
 }
+export interface AdminBlueprint extends Blueprint {
+  status: "published" | "draft";
+}
+
+export interface AdminBlueprintListResponse {
+  success: boolean;
+  data: AdminBlueprint[];
+  pagination: {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+  };
+}
 
 // ---- AI: Recommendation ----
 export interface AIRecommendationPayload {

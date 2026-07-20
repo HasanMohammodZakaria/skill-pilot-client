@@ -21,7 +21,7 @@ export default async function AdminOverviewPage() {
       </div>
 
       <div>
-        <h2 className="font-semibold mb-2">Category বিভাজন</h2>
+        <h2 className="font-semibold mb-2">Category Division</h2>
         <div className="space-y-1">
           {stats.categoryDistribution.map((c) => (
             <div key={c._id} className="flex justify-between text-sm border-b py-1">
@@ -33,7 +33,7 @@ export default async function AdminOverviewPage() {
       </div>
 
       <div>
-        <h2 className="font-semibold mb-2">Difficulty বিভাজন</h2>
+        <h2 className="font-semibold mb-2">Difficulty Division</h2>
         <div className="space-y-1">
           {stats.difficultyDistribution.map((d) => (
             <div key={d._id} className="flex justify-between text-sm border-b py-1">
