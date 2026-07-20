@@ -119,6 +119,12 @@ export interface AIGeneratedBlueprint {
   roadmap: RoadmapStep[];
 }
 
+export interface PlatformStats {
+  totalBlueprints: number;
+  totalUsers: number;
+  totalReviews: number;
+}
+
 // ---- AI: Recommendation ----
 export interface AIRecommendationPayload {
   goal: string;
