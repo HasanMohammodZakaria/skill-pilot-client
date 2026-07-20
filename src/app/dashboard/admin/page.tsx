@@ -1,48 +1,37 @@
+import AdminStatsCharts from "@/app/components/dashboard/admin/AdminStatsCharts";
 import { apiServer } from "@/app/lib/api-server";
 import type { ApiResponse, AdminStats } from "@/app/lib/types";
+
 
 export default async function AdminOverviewPage() {
   const res = await apiServer<ApiResponse<AdminStats>>("/api/admin/stats");
   const stats = res.data;
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-bold">Admin Overview</h1>
+    <div className="space-y-6 px-1 sm:px-0">
+      <h1 className="text-xl sm:text-2xl font-bold">Admin Overview</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="border rounded-lg p-4">
-          <p className="text-sm text-gray-500">Total Users</p>
-          <p className="text-2xl font-bold">{stats.totalUsers}</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div
+          className="border rounded-lg p-4 sm:p-6"
+          style={{ borderColor: "var(--border-default)", backgroundColor: "var(--bg-surface)" }}
+        >
+          <p className="text-xs sm:text-sm text-gray-500">Total Users</p>
+          <p className="text-2xl sm:text-3xl font-bold mt-1">{stats.totalUsers}</p>
         </div>
-        <div className="border rounded-lg p-4">
-          <p className="text-sm text-gray-500">Total Blueprints</p>
-          <p className="text-2xl font-bold">{stats.totalBlueprints}</p>
+        <div
+          className="border rounded-lg p-4 sm:p-6"
+          style={{ borderColor: "var(--border-default)", backgroundColor: "var(--bg-surface)" }}
+        >
+          <p className="text-xs sm:text-sm text-gray-500">Total Blueprints</p>
+          <p className="text-2xl sm:text-3xl font-bold mt-1">{stats.totalBlueprints}</p>
         </div>
       </div>
 
-      <div>
-        <h2 className="font-semibold mb-2">Category Division</h2>
-        <div className="space-y-1">
-          {stats.categoryDistribution.map((c) => (
-            <div key={c._id} className="flex justify-between text-sm border-b py-1">
-              <span>{c._id}</span>
-              <span>{c.count}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <h2 className="font-semibold mb-2">Difficulty Division</h2>
-        <div className="space-y-1">
-          {stats.difficultyDistribution.map((d) => (
-            <div key={d._id} className="flex justify-between text-sm border-b py-1">
-              <span>{d._id}</span>
-              <span>{d.count}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+      <AdminStatsCharts
+        categoryDistribution={stats.categoryDistribution}
+        difficultyDistribution={stats.difficultyDistribution}
+      />
     </div>
   );
 }
