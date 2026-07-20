@@ -1,4 +1,4 @@
-
+export type DifficultyLevel = "Beginner" | "Intermediate" | "Advanced";
 export interface ApiResponse<T> {
   success: boolean;
   data: T;
@@ -85,4 +85,50 @@ export interface BlueprintFiltersResponse {
     categories: { value: string; count: number }[];
     difficulties: { value: string; count: number }[];
   };
+}
+
+// ---- API response wrapper ----
+export interface ApiSuccess<T> {
+  success: true;
+  data: T;
+}
+
+// ---- Roadmap ----
+export interface RoadmapStep {
+  step: number;
+  title: string;
+  description: string;
+}
+
+// ---- AI: Generate Blueprint ----
+export interface AIGenerateBlueprintPayload {
+  targetRole: string;
+  currentLevel: DifficultyLevel;
+  timeCommitment: string;
+  focusAreas?: string[];
+}
+
+export interface AIGeneratedBlueprint {
+  title: string;
+  shortDescription: string;
+  fullDescription: string;
+  category: string;
+  skillTags: string[];
+  estimatedDuration: string;
+  learningGoal: string;
+  roadmap: RoadmapStep[];
+}
+
+// ---- AI: Recommendation ----
+export interface AIRecommendationPayload {
+  goal: string;
+  existingSkills?: string[];
+  preferredCategory?: string;
+  difficulty?: DifficultyLevel;
+}
+
+export interface AIRecommendation {
+  recommendedCategories: string[];
+  reasoning: string;
+  suggestedNextSkills: string[];
 }

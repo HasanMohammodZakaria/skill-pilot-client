@@ -4,29 +4,41 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAddBlueprint } from "@/app/lib/hooks/useAddBlueprint";
 import { useUpdateBlueprint } from "@/app/lib/hooks/useUpdateBlueprint";
-import type { Blueprint } from "@/app/lib/types";
+import type { Blueprint, AIGeneratedBlueprint } from "@/app/lib/types";
 
 export default function BlueprintForm({
   mode,
   initialData,
+  aiData,
 }: {
   mode: "create" | "edit";
   initialData?: Blueprint;
+  aiData?: AIGeneratedBlueprint;
 }) {
   const router = useRouter();
   const { mutate: addBlueprint, isPending: isAdding } = useAddBlueprint();
   const { mutate: updateBlueprint, isPending: isUpdating } = useUpdateBlueprint();
 
-  const [title, setTitle] = useState(initialData?.title ?? "");
-  const [shortDescription, setShortDescription] = useState(initialData?.shortDescription ?? "");
-  const [fullDescription, setFullDescription] = useState(initialData?.fullDescription ?? "");
-  const [category, setCategory] = useState(initialData?.category ?? "");
+  const [title, setTitle] = useState(initialData?.title ?? aiData?.title ?? "");
+  const [shortDescription, setShortDescription] = useState(
+  initialData?.shortDescription ?? aiData?.shortDescription ?? ""
+  );
+  const [fullDescription, setFullDescription] = useState(
+  initialData?.fullDescription ?? aiData?.fullDescription ?? ""
+  );
+  const [category, setCategory] = useState(initialData?.category ?? aiData?.category ?? "");
   const [difficulty, setDifficulty] = useState(initialData?.difficulty ?? "Beginner");
-  const [estimatedDuration, setEstimatedDuration] = useState(initialData?.estimatedDuration ?? "");
-  const [skillTagsInput, setSkillTagsInput] = useState(initialData?.skillTags?.join(", ") ?? "");
-  const [learningGoal, setLearningGoal] = useState(initialData?.learningGoal ?? "");
-  const [coverImageUrl, setCoverImageUrl] = useState(initialData?.coverImageUrl ?? "");
-  const [resourceLink, setResourceLink] = useState(initialData?.resourceLink ?? "");
+  const [estimatedDuration, setEstimatedDuration] = useState(
+  initialData?.estimatedDuration ?? aiData?.estimatedDuration ?? ""
+  );
+  const [skillTagsInput, setSkillTagsInput] = useState(
+  initialData?.skillTags?.join(", ") ?? aiData?.skillTags?.join(", ") ?? ""
+  );
+const [learningGoal, setLearningGoal] = useState(initialData?.learningGoal ?? aiData?.learningGoal ?? "");
+const [coverImageUrl, setCoverImageUrl] = useState(initialData?.coverImageUrl ?? "");
+const [resourceLink, setResourceLink] = useState(initialData?.resourceLink ?? "");
+
+ 
 
   const isPending = isAdding || isUpdating;
 

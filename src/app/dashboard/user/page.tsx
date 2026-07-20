@@ -1,6 +1,7 @@
 import { apiServer } from "@/app/lib/api-server";
 import type { ApiResponse, Blueprint } from "@/app/lib/types";
 import Link from "next/link";
+import RecommendationCard from "./RecommendationCard";
 
 export default async function UserOverviewPage() {
   const res = await apiServer<ApiResponse<Blueprint[]>>("/api/blueprints/mine");
@@ -16,7 +17,7 @@ export default async function UserOverviewPage() {
           <p className="text-2xl font-bold">{blueprints.length}</p>
         </div>
       </div>
-
+      <RecommendationCard />
       <div>
         <h2 className="font-semibold mb-3">Recent Blueprints</h2>
         {blueprints.length === 0 ? (
