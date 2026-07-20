@@ -125,6 +125,16 @@ export interface PlatformStats {
   totalReviews: number;
 }
 
+export interface Review {
+  _id: string;
+  userName: string;
+  userImageUrl?: string;
+  rating: number;
+  comment: string;
+  blueprintTitle?: string;
+  createdAt: string;
+}
+
 // ---- AI: Recommendation ----
 export interface AIRecommendationPayload {
   goal: string;
