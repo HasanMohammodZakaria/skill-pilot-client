@@ -1,6 +1,6 @@
 import Link from "next/link";
 import {
-  FiGithub,
+  FiFacebook,
   FiTwitter,
   FiLinkedin,
   FiInstagram,
@@ -10,10 +10,10 @@ import {
 } from "react-icons/fi";
 
 const SOCIAL_LINKS = [
-  { icon: FiGithub, href: "https://github.com/skillpilot-ai", label: "GitHub" },
-  { icon: FiTwitter, href: "https://twitter.com/skillpilotai", label: "Twitter" },
-  { icon: FiLinkedin, href: "https://linkedin.com/company/skillpilotai", label: "LinkedIn" },
-  { icon: FiInstagram, href: "https://instagram.com/skillpilotai", label: "Instagram" },
+  { icon: FiFacebook, href: "https://www.facebook.com/hasan.m.zakaria.1", label: "GitHub" },
+  { icon: FiTwitter, href: "https://x.com/Zakariak4Khan", label: "Twitter" },
+  { icon: FiLinkedin, href: "https://www.linkedin.com/in/hasanmdzakaria/", label: "LinkedIn" },
+  { icon: FiInstagram, href: "https://www.instagram.com/zakariak4/", label: "Instagram" },
 ];
 
 const QUICK_LINKS = [

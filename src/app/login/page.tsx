@@ -17,8 +17,8 @@ const DEMO_USER = {
 };
 
 const DEMO_ADMIN = {
-  email: "demo.admin@skillpilot.ai",
-  password: "DemoAdmin@1234",
+  email: "support@skillpilot.ai",
+  password: "Ad2587413",
 };
 
 export default function LoginPage() {
