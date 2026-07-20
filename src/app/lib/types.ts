@@ -1,4 +1,4 @@
-// backend এর সব response এই shape এ আসে: { success, data, ... }
+
 export interface ApiResponse<T> {
   success: boolean;
   data: T;
@@ -49,4 +49,33 @@ export interface AdminUser {
   role: "admin" | "user";
   image?: string;
   createdAt: string;
+}
+export interface Review {
+  _id: string;
+  blueprintId: string;
+  userId: string;
+  userName: string;
+  rating: number;
+  comment: string;
+  createdAt: string;
+}
+
+export interface ReviewsResponse {
+  success: boolean;
+  data: Review[];
+  meta: {
+    averageRating: number;
+    totalReviews: number;
+  };
+}
+
+export interface BlueprintListResponse {
+  success: boolean;
+  data: Blueprint[];
+  pagination: {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+  };
 }
