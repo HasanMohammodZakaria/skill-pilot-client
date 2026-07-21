@@ -97,8 +97,8 @@ export default function HeroSection() {
           className="relative order-1 lg:order-2 w-full flex justify-center"
         >
           <div
-            className="card card--blueprint relative w-full max-w-md aspect-4/3 overflow-hidden"
-            style={{ padding: 0 }}
+            className="card card--blueprint relative w-full max-w-xl aspect-4/3 overflow-hidden"
+  style={{ padding: 0 }}
           >
             <Image
               src="/heroimage.png"

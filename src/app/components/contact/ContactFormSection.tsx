@@ -43,7 +43,7 @@ export default function ContactFormSection() {
   return (
     <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl grid lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-12">
-        {/* ---- Form ---- */}
+       
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -118,7 +118,7 @@ export default function ContactFormSection() {
           </form>
         </motion.div>
 
-        {/* ---- Contact info ---- */}
+       
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}

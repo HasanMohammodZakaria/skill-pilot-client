@@ -3,9 +3,9 @@
 
 :root {
   /* ---- Primary palette (max 3 + neutral, per project rules) ---- */
-  --color-primary: #4cc9f0;        /* Blueprint Cyan — links, CTAs, brand */
-  --color-accent: #f5a623;         /* Signal Amber — AI feature highlights */
-  --color-base: #0a1628;           /* Deep Navy — dark mode base */
+  --color-primary: #4cc9f0;        
+  --color-accent: #f5a623;        
+  --color-base: #0a1628;          
  
   /* ---- Neutral scale ---- */
   --color-neutral-950: #0a1628;
