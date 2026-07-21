@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SkillPilot
 
-## Getting Started
+**Your AI-Powered Career & Learning Companion**
 
-First, run the development server:
+SkillPilot is a full-stack learning platform that helps users discover, follow, and even generate structured learning "blueprints" — step-by-step roadmaps for building real skills. Powered by AI (Gemini + Groq), backed by community reviews, and built with a role-aware dashboard for both learners and admins.
 
+---
+
+## 🔗 Live Link
+
+- **Live App:** [https://skill-pilot-client.vercel.app](https://skill-pilot-client.vercel.app)
+
+---
+
+## 📦 Client Repository
+
+- **GitHub (Client):** [https://github.com/HasanMohammodZakaria/skill-pilot-client](https://github.com/HasanMohammodZakaria/skill-pilot-client)
+
+---
+
+## 🖥️ Server Repository
+
+- **GitHub (Server):** [https://github.com/HasanMohammodZakaria/skill-pilot-server](https://github.com/HasanMohammodZakaria/skill-pilot-server)
+
+---
+
+## 📖 Project Overview
+
+SkillPilot solves a common problem: with countless online courses and tutorials available, it's hard to know exactly what to learn next and in what order. SkillPilot provides:
+
+- **Structured Blueprints** — Curated, step-by-step learning roadmaps across categories like Web Development, Data Science, Design, and more.
+- **AI-Powered Generation** — Users can generate a fully custom blueprint based on their target role, current skill level, and available time — powered by Google Gemini.
+- **AI Recommendations & Reviews** — Get personalized learning suggestions and automated quality scoring on blueprints using Gemini and Groq.
+- **Role-Based Dashboards** — Separate dashboard experiences for regular users (manage their own blueprints) and admins (platform-wide stats, user role management).
+- **Community Reviews** — Users can rate and review blueprints to help others find quality content.
+- **Secure Authentication** — Email/password and Google OAuth login, powered by BetterAuth with a MongoDB adapter.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Next.js** (App Router) — React framework for the client application
+- **TypeScript** — type-safe development
+- **Tailwind CSS** — utility-first styling
+- **HeroUI** — accessible React UI component library
+- **BetterAuth** (client) — authentication client
+- **React Hook Form** — form state management and validation
+- **TanStack (React Query)** — server-state data fetching and caching
+- **Framer Motion** — animations and page transitions
+- **next-themes** — light/dark mode support
+- **React Icons** — icon library
+- **React Toastify** — toast notifications
+- **Recharts** — charts and data visualization (dashboard stats)
+- **Jotai** — lightweight state management
+- **MongoDB** (client-side types/shared schema references)
+
+### Backend
+- **Express.js** — Node.js web server framework
+- **TypeScript** — type-safe backend development
+- **MongoDB** — primary database
+- **BetterAuth** (server) — authentication (email/password + Google OAuth) with MongoDB adapter
+- **Google Gemini API** — AI blueprint generation, recommendations, and reviews
+- **Groq API** — fast AI-powered chat assistant
+- **CORS** — cross-origin request handling
+- **dotenv** — environment variable management
+- **Zod** — schema validation
+- **Jotai** — shared state utilities
+
+---
+
+## 🚀 Getting Started (Local Development)
+
+### Backend
 ```bash
+cd skill-pilot-server
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Frontend
+```bash
+cd skill-pilot-ai-client
+npm install
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Make sure both `.env` files are configured with the required environment variables (MongoDB URI, BetterAuth secrets, Google OAuth credentials, Gemini/Groq API keys, and client/server URLs).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📄 License
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is for educational purposes as part of a personal learning journey.
