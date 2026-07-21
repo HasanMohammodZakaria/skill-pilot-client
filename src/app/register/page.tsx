@@ -45,18 +45,18 @@ export default function RegisterPage() {
     router.refresh();
   }
 
-  async function handleGoogleSignUp() {
-    setIsGoogleLoading(true);
-    try {
-      await authClient.signIn.social({
-        provider: "google",
-        callbackURL: "/dashboard",
-      });
-    } catch {
-      toast.error("Google sign-up failed. Please try again.");
-      setIsGoogleLoading(false);
-    }
+async function handleGoogleSignUp() {
+  setIsGoogleLoading(true);
+  try {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: `${window.location.origin}/dashboard`,
+    });
+  } catch {
+    toast.error("Google sign-up failed. Please try again.");
+    setIsGoogleLoading(false);
   }
+}
 
   return (
     <div

@@ -61,19 +61,18 @@ export default function LoginPage() {
     await handleSubmit(onSubmit)();
     setDemoLoadingRole(null);
   }
-
-  async function handleGoogleLogin() {
-    setIsGoogleLoading(true);
-    try {
-      await authClient.signIn.social({
-        provider: "google",
-        callbackURL: "/dashboard",
-      });
-    } catch {
-      toast.error("Google sign-in failed. Please try again.");
-      setIsGoogleLoading(false);
-    }
+async function handleGoogleLogin() {
+  setIsGoogleLoading(true);
+  try {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: `${window.location.origin}/dashboard`,
+    });
+  } catch {
+    toast.error("Google sign-in failed. Please try again.");
+    setIsGoogleLoading(false);
   }
+}
 
   return (
     <div

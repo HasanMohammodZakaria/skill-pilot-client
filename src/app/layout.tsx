@@ -4,8 +4,8 @@ import { ToastContainer } from "react-toastify";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 
-import ConditionalChrome from "./components/ConditionalChrome";
 import QueryProvider from "./components/providers/QueryProvider";
+import ConditionalLayout from "./components/layout/ConditionalLayout";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -39,7 +39,7 @@ export default function RootLayout({
             enableSystem={false}
             disableTransitionOnChange
           >
-            <ConditionalChrome>{children}</ConditionalChrome>
+           <ConditionalLayout> {children}</ConditionalLayout>
 
             <ToastContainer
               position="top-right"

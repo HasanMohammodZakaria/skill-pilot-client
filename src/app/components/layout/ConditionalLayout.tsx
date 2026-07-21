@@ -1,0 +1,19 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+import Navbar from "../shared/Navbar";
+import Footer from "../shared/Footer";
+
+
+export default function ConditionalLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isDashboard = pathname?.includes("/dashboard");
+
+  return (
+    <>
+      {!isDashboard && <Navbar />}
+      {children}
+      {!isDashboard && <Footer />}
+    </>
+  );
+}
